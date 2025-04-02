@@ -58,7 +58,6 @@ const DashboardScreen = ({ navigation, setIsLoggedIn }) => {
         try {
             const token = await AsyncStorage.getItem('userToken');
 
-            // Fetch uploaded dates
             const datesResponse = await api.getUploadedDates(token);
             if (datesResponse.success) {
                 setUploadedDates(datesResponse.data);
