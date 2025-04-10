@@ -45,7 +45,7 @@ const UserDetailScreen = ({ navigation, route, setIsLoggedIn }) => {
         <Card style={styles.weekCard}>
             <Card.Content>
                 <Text variant="titleMedium" style={styles.weekText}>
-                    Week: {new Date(item.week_start).toLocaleDateString()} - {new Date(item.week_end).toLocaleDateString()}
+                    Week: {new Date(item.week_start).toISOString().slice(0, 10)} - {new Date(item.week_end).toISOString().slice(0, 10)}
                 </Text>
 
             </Card.Content>

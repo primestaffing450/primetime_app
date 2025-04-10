@@ -64,7 +64,7 @@ const UserWeeklySummaries = ({ route, setIsLoggedIn }) => {
                     {/* Week Range Section */}
                     <View style={styles.weekRangeContainer}>
                         <Text style={styles.weekRangeText}>
-                            Week: {new Date(data?.week_data?.week_start).toLocaleDateString()} - {new Date(data?.week_data?.week_end).toLocaleDateString()}
+                            Week: {new Date(data?.week_data?.week_start).toISOString().slice(0, 10)} - {new Date(data?.week_data?.week_end).toISOString().slice(0, 10)}
                         </Text>
                     </View>
 
@@ -82,7 +82,7 @@ const UserWeeklySummaries = ({ route, setIsLoggedIn }) => {
                                 {/* Date */}
                                 <View style={styles.row}>
                                     <Text style={styles.keyText}>Date:</Text>
-                                    <Text style={styles.valueText}>{new Date(day.date).toLocaleDateString()}</Text>
+                                    <Text style={styles.valueText}>{new Date(day.date).toISOString().slice(0, 10)}</Text>
                                 </View>
 
                                 {/* Time In */}
