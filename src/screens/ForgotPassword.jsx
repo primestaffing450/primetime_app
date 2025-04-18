@@ -5,14 +5,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../apis/api';
 import Logo from "../assets/Logo.png";
 
-const LoginScreen = ({ navigation, setIsLoggedIn, setRole }) => {
+const ForgotPassword = ({ navigation }) => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
 
     const validateInputs = () => {
-        if (!email || !password) {
-            Alert.alert('Error', 'All fields are required!');
+        if (!email) {
+            Alert.alert('Error', 'Email is required!');
             return false;
         }
 
@@ -25,17 +24,13 @@ const LoginScreen = ({ navigation, setIsLoggedIn, setRole }) => {
         setLoading(true);
         const formattedEmail = email.toLowerCase().trim();
         try {
-            const response = await api.login(formattedEmail, password);
+            const response = await api.forgotPassword(formattedEmail);
             if (response.success) {
-                Alert.alert('Success', 'Logged in SuccessFully...');
-                await AsyncStorage.setItem('userToken', response?.data?.access_token);
-                await AsyncStorage.setItem('role', response?.data?.user_data?.role);
-                setRole(response?.data?.user_data?.role)
-                setIsLoggedIn(true);
+                Alert.alert('Success', 'reset password link sent your email successfully!');
                 setEmail('');
-                setPassword('');
+                navigation.navigate('Login')
             } else {
-                Alert.alert('Error', response.message);
+                Alert.alert('Error', response.message || 'Reset Password failed');
             }
         } catch (error) {
             Alert.alert('Error', 'Something went wrong. Please try again.');
@@ -53,7 +48,7 @@ const LoginScreen = ({ navigation, setIsLoggedIn, setRole }) => {
 
                     </View>
                     <TextInput
-                        label="Email or Username"
+                        label="Email"
                         value={email}
                         onChangeText={setEmail}
                         style={styles.input}
@@ -61,14 +56,7 @@ const LoginScreen = ({ navigation, setIsLoggedIn, setRole }) => {
                         keyboardType="email-address"
                     />
 
-                    <TextInput
-                        label="Password"
-                        secureTextEntry
-                        value={password}
-                        onChangeText={setPassword}
-                        style={styles.input}
-                        mode="outlined"
-                    />
+
 
                     <Button
                         mode="contained"
@@ -76,14 +64,11 @@ const LoginScreen = ({ navigation, setIsLoggedIn, setRole }) => {
                         style={styles.button}
                         loading={loading}
                     >
-                        Login
+                        Send password reset email
                     </Button>
-
                     <View style={styles.bottomLinks}>
-                        <Button onPress={() => navigation.navigate('Register')} mode="text">Create Account</Button>
-                        <Button onPress={() => navigation.navigate('ResetPassword')} mode="text">
-                            Forgot Password?
-                        </Button>
+                        <Button onPress={() => navigation.navigate('Login')} mode="text">Go to Login</Button>
+
                     </View>
                 </Card.Content>
             </Card>
@@ -125,4 +110,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginScreen;
+export default ForgotPassword;

@@ -10,6 +10,7 @@ import DashboardScreen from './src/screens/DashboardScreen';
 import ManagerDashbaordScreen from './src/screens/ManagerDashbaordScreen';
 import UserDetailScreen from './src/screens/UserDetailsScreen';
 import UserWeeklySummaries from './src/screens/UserWeeklySummaries';
+import ForgotPassword from './src/screens/ForgotPassword';
 
 const Stack = createNativeStackNavigator();
 
@@ -112,6 +113,7 @@ const App = () => {
               {props => <LoginScreen {...props} setIsLoggedIn={setIsLoggedIn} setRole={setRole} />}
             </Stack.Screen>
             <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="ResetPassword" component={ForgotPassword} options={{ headerShown: false }} />
           </>
         )}
       </Stack.Navigator>

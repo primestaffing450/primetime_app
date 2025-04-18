@@ -41,8 +41,9 @@ const RegisterScreen = ({ navigation }) => {
         setLoading(true);
 
         const formattedEmail = email.toLowerCase().trim();
+        const formattedUsername = username.toLowerCase().trim();
         try {
-            const response = await api.register(username, formattedEmail, password, fullName);
+            const response = await api.register(formattedUsername, formattedEmail, password, fullName);
             if (response.success) {
                 Alert.alert('Success', 'Registration Successful! Please login.');
                 navigation.navigate('Login');

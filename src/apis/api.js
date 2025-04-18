@@ -2,7 +2,6 @@ import axios from 'axios';
 import { endPoint } from '../config';
 
 const API_URL = `${endPoint}/api`;
-// const API_URL = 'https://c363-2405-201-4021-1a43-9120-4409-cd6c-5d2d.ngrok-free.app/api';
 
 const api = {
     login: async (username_or_email, password) => {
@@ -19,6 +18,7 @@ const api = {
             });
             return { success: true, data: response?.data };
         } catch (error) {
+            console.log(error, "---");
             console.log('Login Error:', error?.response?.data?.detail);
             return { success: false, message: error?.response?.data?.detail };
         }
@@ -41,6 +41,25 @@ const api = {
             return { success: true, data: response?.data };
         } catch (error) {
             console.log('Register Error:', error?.response?.data?.detail);
+            return { success: false, message: error?.response?.data?.detail };
+        }
+    },
+    forgotPassword: async (email) => {
+        try {
+            const payload = {
+                email,
+            };
+            const response = await axios.post(`${API_URL}/auth/forgot-password`, payload, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+            });
+            console.log(response, "---");
+            return { success: true, data: response?.data };
+        } catch (error) {
+            console.log(error, "--");
+            console.log('Reset Password Error:', error?.response?.data?.detail);
             return { success: false, message: error?.response?.data?.detail };
         }
     },
