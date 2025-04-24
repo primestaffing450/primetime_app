@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "PrimeTime.app"
-               BlueprintName = "PrimeTime"
-               ReferencedContainer = "container:PrimeTime.xcodeproj">
+               BuildableName = "PrimeTimeKeeper.app"
+               BlueprintName = "PrimeTimeKeeper"
+               ReferencedContainer = "container:PrimeTimeKeeper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "PrimeTimeTests.xctest"
-               BlueprintName = "PrimeTimeTests"
-               ReferencedContainer = "container:PrimeTime.xcodeproj">
+               BuildableName = "PrimeTimeKeeperTests.xctest"
+               BlueprintName = "PrimeTimeKeeperTests"
+               ReferencedContainer = "container:PrimeTimeKeeper.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "PrimeTime.app"
-            BlueprintName = "PrimeTime"
-            ReferencedContainer = "container:PrimeTime.xcodeproj">
+            BuildableName = "PrimeTimeKeeper.app"
+            BlueprintName = "PrimeTimeKeeper"
+            ReferencedContainer = "container:PrimeTimeKeeper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "PrimeTime.app"
-            BlueprintName = "PrimeTime"
-            ReferencedContainer = "container:PrimeTime.xcodeproj">
+            BuildableName = "PrimeTimeKeeper.app"
+            BlueprintName = "PrimeTimeKeeper"
+            ReferencedContainer = "container:PrimeTimeKeeper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
